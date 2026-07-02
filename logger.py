@@ -75,19 +75,22 @@ def search_process(event = 'PROCESS', etype = 'GET'):
             # Системные процессы
             if name in ['MemCompression', ...]:
                 continue
+            if len(processes) == 3:
+                break
             processes.append((name, mem))
         # Сортировка
-        sorted_processes = sorted(processes, key=lambda x: x[1], reverse=True)
-        names = []
+        #sorted_processes = sorted(processes, key=lambda x: x[1], reverse=True)
+        #names = []
         # Дубликаты
-        for item in sorted_processes:
-            if item[0] not in names:
-                names.append(item[0])
+        #for item in sorted_processes:
+        #    if item[0] not in names:
+        #        names.append(item[0])
         # Обрезка и заполнение
-        names = names[:3]
-        while len(names) < 3:
-            names.append('')
+        #names = names[:3]
+        #while len(names) < 3:
+        #    names.append('')
         # Форматирование
+        names = [item[0] for item in processes]
         data = ':'.join(names)
         with lock:
             writer.writerow([VERSION, timestamp(), event, etype, data])
