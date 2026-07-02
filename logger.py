@@ -29,7 +29,7 @@ def formatting_event_data(event, etype, **kwargs):
 
 def on_press(key):
     formatting_event_data('KEYBOARD', 'PRESS', key=key)
-    if key == keyboard.Key.backspace:
+    if key == keyboard.Key.f2:
         stop_event.set()
         mouse_listener.stop()
         keyboard_listener.stop()
