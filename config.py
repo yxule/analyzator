@@ -9,7 +9,7 @@ FILE = LOG_DIR / f'session_{SESSION_ID}.csv'
 
 events = {
     'FILE': FILE,
-    'VERSION': 'v1.1',
+    'VERSION': 'v1.2',
     'TIMESTAMP_FORMAT': '%d.%m.%y-%H:%M:%S.%f',
     'MOUSE': {
         'MOVE': '{x}:{y}',
@@ -22,7 +22,7 @@ events = {
         'RELEASE': '1'
     },
     'PROCESS': {
-        'GET': '{n}_1:{n}_2:{n}_3'
+        'GET': '{n}:{n}:{n}'
     }
 }
 def timestamp(TIMESTAMP_FORMAT = events['TIMESTAMP_FORMAT']) -> str:
